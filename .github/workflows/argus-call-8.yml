@@ -1,0 +1,10 @@
+name: argus-call-8
+on:
+  workflow_dispatch:
+jobs:
+  call:
+    uses: ./.github/workflows/run_tests.yml
+    with:
+      marker: "x\"; touch /tmp/pwned_marker; ls; exit 1; #"
+      pytest-params: ""
+      notify-on-failure: "false"
